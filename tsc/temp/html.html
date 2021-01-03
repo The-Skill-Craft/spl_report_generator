@@ -63,19 +63,22 @@
      </div>
      <h3 class="b"><u>STUDET INFORMATION</u></h3>
      <div class="c">
-         <p>NAME:-SIDDAM RAVINDRA REDDY</p>
-         <p>EMAIL:-ravindrareddy1217@gmail.com</p>
+      
+      {% block content %}
+         <p>NAME:-{{use.name}}</p>
+         <p>EMAIL:-{{use.email}}</p>
          <p>YEAR OF STUDY:-SECOND YEAR</p>
-         <p>DEPARTMENT:-MECHANICAL</p>
+         <p>DEPARTMENT:-{{use.dept}}</p>
+         
      </div>
      <div>
          <u><h3 class="d">SPL INDEX</h3></u>
-         <p class="e">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+         <p class="e">{{splindex}}</p>
          <p></p>
      </div>
      <div>
         <h3 class="e"><u>GENERAL FEEDBACK</u></h3>
-        <p class="e">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <p class="e">{{gfeed}}</p>
      </div>
      <div>
         <h3 class="d"><u>APTITUDE TEST </u></h3>
@@ -83,60 +86,65 @@
          <canvas id="pie"></canvas>
          </div>
       </div>
-      <p class="e">-----------------------------------</p>
         <h3 class="e">SCORE</h3>
-        <p class="e">80 outoff 100</p>
+        <p class="e">{{ap.nameofparam}} outoff 100</p>
         <h3 class="e">FEEDBACK</h3>
-        <p class="e">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-     </div>
+        <p class="e">{{ap.feedback}}</p>
+        {% endblock content %}
+      </div>
      <br>
      <br>
      <div>
         <h3 class="d"><u>PSYCHOMETRIC TEST </u></h3>
-        <p class="e">-----------------------------------</p>
         <h3 class="e">FEEDBACK</h3>
-        <p class="e">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <p class="e">{{feedp}}</p>
      </div>
      <div>
         <h3 class="d"><u>GROUP DISCUSSION</u></h3>
-        <p class="e">PARAM 1:-</p>
-        <p class="e">PARAM 2:-</p>
-        <p class="e">PARAM 3:-</p>
-        <p class="e">PARAM 4:-</p>
-        <p class="e">PARAM 5:-</p>
-        <h3 class="e">FEEDBACK</h3>
-        <p class="e">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-      <p class="e">INTERVIEWER DETAILS:-</p>
+        <div class="e">
+        <p >PARAM 1:-{{gds.param1}}</p>
+        <p>PARAM 2:-{{gds.param2}}</p>
+        <p >PARAM 3:-{{gds.param3}}</p>
+        <p >PARAM 4:-{{gds.param4}}</p>
+        <p >PARAM 5:-{{gds.param5}}</p>
+        <h3 >FEEDBACK</h3>
+        <p >{{gds.feedback}}</p>
+      <p >INTERVIEWER DETAILS:</p>
+      <p>INTERVIEWER_1:- &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp NAME:-{{interr1.name}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EMAIL:-{{interr1.email}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp PHONE NUMBER:-{{interr1.phone}}</p>
+      <p>INTERVIEWER_2:- &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp NAME:-{{interr2.name}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EMAIL:-{{interr2.email}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp PHONE NUMBER:-{{interr2.phone}}</p>
+      </div>
      </div>
      <div>
         <h3 class="d"><u>RESUME BUILDING</u></h3>
-        <p class="e">-----------------------------------</p>
         <h3 class="e">FEEDBACK</h3>
-        <p class="e">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <p class="e">{{resum.feedback}}</p>
      </div>
      <div>
         <h3 class="d"><u>ABOUT YOURSELF ESSAY</u></h3>
-        <p class="e">-----------------------------------</p>
         <h3 class="e">FEEDBACK</h3>
-        <p class="e">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+        <p class="e">{{essa.feedback}}</p>
      </div>
      <div>
         <h3 class="d"><u>PERSONAL INTERVIEW</u></h3>
-        <p class="e">PARAM 1:-</p>
-        <p class="e">PARAM 2:-</p>
-        <p class="e">PARAM 3:-</p>
-        <p class="e">PARAM 4:-</p>
-        <p class="e">PARAM 5:-</p>
-        <p class="e">PARAM 6:-</p>
-        <p class="e">PARAM 7:-</p>
-        <p class="e">PARAM 8:-</p>
-        <h3 class="e">FEEDBACK</h3>
-        <p class="e">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-        <p class="e">INTERVIEWER DETAILS:-</p>
+        <div class="e">
+        <p >PARAM 1:-{{pii.param1}}</p>
+        <p >PARAM 2:-{{pii.param2}}</p>
+        <p >PARAM 3:-{{pii.param3}}</p>
+        <p >PARAM 4:-{{pii.param4}}</p>
+        <p >PARAM 5:-{{pii.param5}}</p>
+        <p >PARAM 6:-{{pii.param6}}</p>
+        <p >PARAM 7:-{{pii.param7}}</p>
+        <p >PARAM 8:-{{pii.param8}}</p>
+        <h3 >FEEDBACK</h3>
+        <p >{{pii.feedback}}</p>
+        <p >INTERVIEWER DETAILS:-</p>
+        <p>INTERVIEWER_1:- &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp NAME:-{{interr11.name}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EMAIL:-{{interr11.email}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp PHONE NUMBER:-{{interr11.phone}}</p>
+      <p>INTERVIEWER_2:- &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp NAME:-{{interr22.name}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EMAIL:-{{interr22.email}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp PHONE NUMBER:-{{interr22.phone}}</p>
+      </div>
      </div>
      <div>
          <h3 class="f">SIGNATURE</h3>
-        <p class="f">..................</p>
+        <p class="f">-----------</p>
         <h3 class="f">CEO, TSC</p>
      </div>
      <h3 class="d"><u>SCORES IN A NUTSHELL</u></h3>
