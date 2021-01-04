@@ -1,22 +1,30 @@
 {% load static %}
-<html>
-<head>
-    <title>
-        report
-    </title>
-</head>
-<link href="{% static 'css.css' %}" rel="stylesheet" type="text/css">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Spl Report Generator</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Tooplate" />
+    <link href="{% static 'css.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'tooplate-style.css' %}" />
+  </head>
 <script>
    var config = {
-     type: 'pie',
+     type: 'radar',
      data: {
        datasets: [{
          data: [1, 16, 58, 4, 4, 31, 31, 30, 23],
          backgroundColor: [
            '#ff0000', '#0000ff', '#ff0080', '#73ffff', '#5c26ff', '#002db3', '#ffff26', '#4cff4c', '#ff00ff'
          ],
-         label: 'Population'
+         label: 'marks'
        }],
        labels: ['10-20 marks', '20-30 marks', '30-40 marks', '40-50 marks', '50-60 marks', '60-70 marks', '70-80 marks', '80-90 marks', '90-100 marks']
      },
@@ -28,7 +36,7 @@
      }
    };
    var config1 = {
-      type: 'pie',
+      type: 'radar',
       data: {
         datasets: [{
           data: [12, 136, 583, 44, 44, 31, 31, 30, 23],
@@ -55,104 +63,244 @@
      var ctx2 = document.getElementById('pie-chart1').getContext('2d');
      window.myPie = new Chart(ctx2, config1);
    };
- </script>
-    <body>
-     <div class="a">
-        <img src="https://tse1.mm.bing.net/th?id=OIP.76Fw9ILdyKkJDPqOw6sMWAAAAA&pid=Api&P=0&w=225&h=141"  style="width: 50px;height:40px;float:left ;margin-left:5%">
-         <h2><b>SPL REPORT GENERATOR</b></h2>
-     </div>
-     <h3 class="b"><u>STUDET INFORMATION</u></h3>
-     <div class="c">
-      
-      {% block content %}
-         <p>NAME:-{{use.name}}</p>
+</script>
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="#"><img src="https://tse1.mm.bing.net/th?id=OIP.76Fw9ILdyKkJDPqOw6sMWAAAAA&pid=Api&P=0&w=225&h=141" alt="The Skill Craft" /></a>
+            </div>
+            <div class="author-content">
+              <h4>The Skill Craft</h4>
+              <span>Student Placement League</span>
+            </div>
+            <nav class="main-nav" role="navigation">
+              <ul class="main-menu">
+                <li><a href="#section1">About</a></li>
+                <li><a href="#section2">Student info</a></li>
+                <li><a href="#section3">Aptitude test</a></li>
+                <li><a href="#section4">Pyschometric test</a></li>
+                <li><a href="#section5">Group discussion</a></li>
+                <li><a href="#section6">Resume building</a></li>
+                <li><a href="#section7">Essay</a></li>
+                <li><a href="#section8">personal interview</a></li>
+                <li><a href="#section9">final scores</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <section class="section" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <h1 style="text-align: center;"><b>SPL Report</b></h1>
+            <h2>The Skill Craft</h2>
+            <div class="line-dec"></div>
+            <span>&nbsp &nbsp &nbsp &nbspBrake fluid is incompressible under pressure, and since it has a high boiling point, the heat from your brakes isn't enough to cause it to boil. But water has a much lower boiling point. If the moisture-contaminated brake fluid starts boiling, it creates gas bubbles. Gas is compressible. So when you apply brake the hydraulic pressure in the brake system, instead of that force being transferred to your brake pads in order to grip your rotors (or drums) and slow your car down, that force is wasted in compressing the gas.</span>
+          </div>
+        </div>
+      </section>
+      <section class="section" data-section="section2">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Student info</h2>
+            <div class="line-dec"></div>
+            <span>
+              <p>NAME:-{{use.name}}</p>
          <p>EMAIL:-{{use.email}}</p>
          <p>YEAR OF STUDY:-SECOND YEAR</p>
-         <p>DEPARTMENT:-{{use.dept}}</p>
-         
-     </div>
-     <div>
-         <u><h3 class="d">SPL INDEX</h3></u>
-         <p class="e">{{splindex}}</p>
-         <p></p>
-     </div>
-     <div>
-        <h3 class="e"><u>GENERAL FEEDBACK</u></h3>
-        <p class="e">{{gfeed}}</p>
-     </div>
-     <div>
-        <h3 class="d"><u>APTITUDE TEST </u></h3>
-        <div class="aa" style="width: 40%;float :right">
-         <canvas id="pie"></canvas>
-         </div>
-      </div>
-        <h3 class="e">SCORE</h3>
-        <p class="e">{{ap.nameofparam}} outoff 100</p>
-        <h3 class="e">FEEDBACK</h3>
-        <p class="e">{{ap.feedback}}</p>
-        {% endblock content %}
-      </div>
-     <br>
-     <br>
-     <div>
-        <h3 class="d"><u>PSYCHOMETRIC TEST </u></h3>
-        <h3 class="e">FEEDBACK</h3>
-        <p class="e">{{feedp}}</p>
-     </div>
-     <div>
-        <h3 class="d"><u>GROUP DISCUSSION</u></h3>
-        <div class="e">
-        <p >PARAM 1:-{{gds.param1}}</p>
-        <p>PARAM 2:-{{gds.param2}}</p>
-        <p >PARAM 3:-{{gds.param3}}</p>
-        <p >PARAM 4:-{{gds.param4}}</p>
-        <p >PARAM 5:-{{gds.param5}}</p>
-        <h3 >FEEDBACK</h3>
-        <p >{{gds.feedback}}</p>
-      <p >INTERVIEWER DETAILS:</p>
-      <p>INTERVIEWER_1:- &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp NAME:-{{interr1.name}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EMAIL:-{{interr1.email}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp PHONE NUMBER:-{{interr1.phone}}</p>
-      <p>INTERVIEWER_2:- &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp NAME:-{{interr2.name}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EMAIL:-{{interr2.email}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp PHONE NUMBER:-{{interr2.phone}}</p>
-      </div>
-     </div>
-     <div>
-        <h3 class="d"><u>RESUME BUILDING</u></h3>
-        <h3 class="e">FEEDBACK</h3>
-        <p class="e">{{resum.feedback}}</p>
-     </div>
-     <div>
-        <h3 class="d"><u>ABOUT YOURSELF ESSAY</u></h3>
-        <h3 class="e">FEEDBACK</h3>
-        <p class="e">{{essa.feedback}}</p>
-     </div>
-     <div>
-        <h3 class="d"><u>PERSONAL INTERVIEW</u></h3>
-        <div class="e">
-        <p >PARAM 1:-{{pii.param1}}</p>
-        <p >PARAM 2:-{{pii.param2}}</p>
-        <p >PARAM 3:-{{pii.param3}}</p>
-        <p >PARAM 4:-{{pii.param4}}</p>
-        <p >PARAM 5:-{{pii.param5}}</p>
-        <p >PARAM 6:-{{pii.param6}}</p>
-        <p >PARAM 7:-{{pii.param7}}</p>
-        <p >PARAM 8:-{{pii.param8}}</p>
-        <h3 >FEEDBACK</h3>
-        <p >{{pii.feedback}}</p>
-        <p >INTERVIEWER DETAILS:-</p>
-        <p>INTERVIEWER_1:- &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp NAME:-{{interr11.name}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EMAIL:-{{interr11.email}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp PHONE NUMBER:-{{interr11.phone}}</p>
-      <p>INTERVIEWER_2:- &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp NAME:-{{interr22.name}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp EMAIL:-{{interr22.email}} &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp PHONE NUMBER:-{{interr22.phone}}</p>
-      </div>
-     </div>
-     <div>
-         <h3 class="f">SIGNATURE</h3>
-        <p class="f">-----------</p>
-        <h3 class="f">CEO, TSC</p>
-     </div>
-     <h3 class="d"><u>SCORES IN A NUTSHELL</u></h3>
-     <div class="aa" style="width: 40%;float:right">
-      <canvas id="pie-chart"></canvas>
-      </div>
-      <div class="aaa" style="width: 40%;">
-      <canvas id="pie-chart1"></canvas>
-      </div>
-    </body>
+         <p>DEPARTMENT:-{{use.dept}}</p></span>
+          </div>
+        </div>
+      </section>
+      <section class="section my-services" data-section="section3">
+            <div class="aa" style="width: 50%;float :right">
+              <canvas id="pie"></canvas>
+            </div>
+            <h2>Aptitude test</h2>
+            <div class="line-dec"></div>
+            <br>
+            <h3 class="e" style="text-align: center;">SCORE</h3>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="table-responsive">
+                  <table class="table">
+                    <div class="progress">
+                      <div class="progress-bar" style="width: {{ap.nameofparam}}%" aria-valuenow="10" aria-valuemin="0" ,aria-valuemax="100">{{ap.nameofparam}}%</div>
+                    </div>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+              <div class="service-item">
+                <h4>Feedback</h4>
+                <p>{{ap.feedback}} </p>
+              </div>
+            </div>
+
+      </section>
+      <section class="section my-services" data-section="section4">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Pyschometric test</h2>
+            <div class="line-dec"></div>
+            <br>
+          </div>
+          <div class="row">
+              <div class="service-item">
+                <h4>Feedback</h4>
+                <p>{{feedp}}</p>
+              </div>
+          </div>
+          </div>
+      </section>
+      <section class="section my-services" data-section="section5">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Group discussion</h2>
+            <div class="line-dec"></div>
+            <div class="e">
+              <p >PARAM 1:-{{gds.param1}}</p>
+              <p>PARAM 2:-{{gds.param2}}</p>
+              <p >PARAM 3:-{{gds.param3}}</p>
+              <p >PARAM 4:-{{gds.param4}}</p>
+              <p >PARAM 5:-{{gds.param5}}</p>
+              </div>
+            <br>
+          </div>
+          <div class="row">
+              <div class="service-item">
+                <h4>Feedback</h4>
+                <p>{{gds.feedback}}</p>
+          </div>
+        </div>
+      </section>
+      <section class="section my-services" data-section="section6">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Resume building</h2>
+            <div class="line-dec"></div>
+            <br>
+          </div>
+          <div class="row">
+              <div class="service-item">
+                <h4>Feedback</h4>
+                <p>{{resum.feedback}}</p>
+          </div>
+        </div>
+      </section>
+      <section class="section my-services" data-section="section7">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Essay</h2>
+            <div class="line-dec"></div>
+            <br>
+          </div>
+          <div class="row">
+              <div class="service-item">
+                <h4>Feedback</h4>
+                <p>{{essa.feedback}}</p>
+          </div>
+        </div>
+      </section>
+      <section class="section my-services" data-section="section8">
+        <div class="container">
+          <div class="section-heading">
+            <h2>personal interview</h2>
+            <div class="line-dec"></div>
+            <div class="e">
+              <p >PARAM 1:-{{pii.param1}}</p>
+              <p >PARAM 2:-{{pii.param2}}</p>
+              <p >PARAM 3:-{{pii.param3}}</p>
+              <p >PARAM 4:-{{pii.param4}}</p>
+              <p >PARAM 5:-{{pii.param5}}</p>
+              <p >PARAM 6:-{{pii.param6}}</p>
+              <p >PARAM 7:-{{pii.param7}}</p>
+              <p >PARAM 8:-{{pii.param8}}</p>
+              </div>
+            <br>
+          </div>
+          <div class="row">
+              <div class="service-item">
+                <h4>Feedback</h4>
+                <p>{{pii.feedback}}</p>
+          </div>
+        </div>
+      </section>
+      <section class="section my-services" data-section="section9">
+        <div class="container">
+          <div class="section-heading">
+          <div>
+            <h3 class="f">SIGNATURE</h3>
+           <p class="f">-----------</p>
+           <h3 class="f">CEO, TSC</p>
+            </h3>
+           <br>
+           <br>
+        </div>
+        </div>
+        </div>
+        </section>
+    <script src="{% static 'jquery.min.js' %}"></script>
+    <script>
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[http://127.0.0.1:8000/#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
+  </body>
 </html>
